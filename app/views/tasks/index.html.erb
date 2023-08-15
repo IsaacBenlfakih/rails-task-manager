@@ -1,0 +1,17 @@
+<div class="container">
+<h1 class="mt-5">My Tasks</h1>
+<ul class="list-group list-group-flush mt-5">
+<% @tasks.each do |task| %>
+<li class="list-group-item"><h3><%= link_to task.title, task_path(task) %></h3>
+<%=  link_to  delete_task_path(task.id),
+  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do
+%>
+<i class="fa-solid fa-trash"></i>
+<% end %>
+</li>
+<% end %>
+</ul>
+
+<h4><%= link_to "Create New Task", new_task_path %></h4>
+
+</div>
